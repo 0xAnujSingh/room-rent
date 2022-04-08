@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "room-rent"
+version = "0.1.0"
+description = ""
+authors = ["Anuj Singh Solanki <anujsinghsolanki1999@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Flask = "^2.1.1"
+Flask-SQLAlchemy = "^2.5.1"
+pathlib = "^1.0.1"
+mysqlclient = "^2.1.0"
+python-dotenv = "^0.20.0"
+alembic = "^1.7.7"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
