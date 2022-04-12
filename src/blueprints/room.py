@@ -5,6 +5,9 @@ from sqlalchemy import select, update, delete
 from src.db import engine
 from src.model import Room
 
+## Service Methods
+from src.services.electricity import updateRoomReading
+
 blueprint = Blueprint('room', 'room')
 
 def toDict(room):
@@ -72,13 +75,11 @@ def updateRoomDetails(roomId):
             ## If reading is updated, then it must be greater than the existing reading.
             ## i.e reading cannot be reduced
             if reading is not None and reading > room.reading:
-                room.reading = reading
+                updateRoomReading(room, reading, session)
 
             ## If rent is updated, it can never be zero
             if rent is not None and rent > 0:
                 room.rent = rent
-
-            update()
 
             session.commit()
         return { "success": True }
