@@ -4,7 +4,7 @@ Base = declarative_base()
 
 class Room(Base):
     __tablename__ = 'room'
-    id = Column(Integer, primary_key=True,autoincrement=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     tenant_id = Column(Integer, ForeignKey('tenant.id'), nullable = True)
     number = Column(Integer, nullable =False)
     floor = Column(Integer, nullable = False)
@@ -19,6 +19,7 @@ class Tenant(Base):
     balance = Column(Integer, nullable = False)
     mobile_number = Column(String(16), nullable = False)
     start_date = Column(Date, nullable =True)
+    last_rent_date = Column(Date, nullable =True)
     leave_date = Column(Date, nullable = True)
 
 class Transaction(Base):
